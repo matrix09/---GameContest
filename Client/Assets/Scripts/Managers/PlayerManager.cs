@@ -358,21 +358,21 @@ public class PlayerManager : MonoBehaviour
 
             PathFinding.GizmoDraw(m_vCurPoints, m_fPer);
 
-            tmpx = 1;
-            if (m_vInputMove.x == 0f)
-            {
-                tmpx = lastTmpx;
-            }
-            else if (m_vInputMove.x < 0f)
-                tmpx = -1;
+            //tmpx = 1;
+            //if (m_vInputMove.x == 0f)
+            //{
+            //    tmpx = lastTmpx;
+            //}
+            //else if (m_vInputMove.x < 0f)
+            //    tmpx = -1;
 
-            //RaycastHit[] hits = Physics.BoxCastAll(pos, new Vector3(0.1f, Owner.ActorHeight * 0.5f, Owner.ActorHeight * 0.5f), Owner.ActorTrans.forward, Quaternion.Euler(Owner.ActorTrans.forward), Owner.ActorHeight * 0.5f + 0.2f, BoxMask);
+            ////RaycastHit[] hits = Physics.BoxCastAll(pos, new Vector3(0.1f, Owner.ActorHeight * 0.5f, Owner.ActorHeight * 0.5f), Owner.ActorTrans.forward, Quaternion.Euler(Owner.ActorTrans.forward), Owner.ActorHeight * 0.5f + 0.2f, BoxMask);
 
-            ExtDebug.DrawBoxCastBox(
-            Owner.ActorTrans.position + Owner.BC.center,
-            new Vector3(Owner.ActorHeight * 0.5f, Owner.ActorHeight * 0.5f, 0.1f),
-            Quaternion.LookRotation(Owner.ActorTrans.forward), Owner.ActorTrans.forward, Owner.ActorHeight * 0.5f + 0.2f, Color.green
-            );
+            //ExtDebug.DrawBoxCastBox(
+            //Owner.ActorTrans.position + Owner.BC.center,
+            //new Vector3(Owner.ActorHeight * 0.5f, Owner.ActorHeight * 0.5f, 0.1f),
+            //Quaternion.LookRotation(Owner.ActorTrans.forward), Owner.ActorTrans.forward, Owner.ActorHeight * 0.5f + 0.2f, Color.green
+            //);
         }
         #endregion
 
