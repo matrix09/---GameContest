@@ -50,7 +50,7 @@ public class UIScene_SelecteV1 : UIScene {
         IniteButton();
         CardInited();
     }
-	void PressOK(GameObject obj)
+	public void PressOK(GameObject obj)
     {
         AudioManager.PlayAudio(null, eAudioType.Audio_UI, m_strOK);
         eState = LoadingState.e_LoadLevel;

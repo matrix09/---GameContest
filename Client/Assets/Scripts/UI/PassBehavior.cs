@@ -36,11 +36,11 @@ public class PassBehavior : UIScene {
     #region 拖动
     void OnDrag(Vector2 delta)
     {
-        
+        Vector3 pos = (Vector3)delta;
         if(dragstate==DragState.State_Drag)
         {
             //跟随鼠标移动
-            gameObject.transform.localPosition += (Vector3)delta;
+            gameObject.transform.localPosition += new Vector3(pos.x, pos.y, 0);
             ScaleControl(delta);
             //ChangeScale();
         }

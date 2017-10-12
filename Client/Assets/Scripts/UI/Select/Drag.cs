@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using AttTypeDefine;
+using Assets.Scripts.Helper;
 
 public class Drag : UIScene {
     #region 成员变量
@@ -109,7 +108,7 @@ public class Drag : UIScene {
             {
                 //if (drag.x > Dis)
                // if (Dis < -Screen.width / 2)
-               if(Dis<0)
+               if(Dis<- Screen.width / 3)
                 {
                     Grid_CurrentIndex++;
                     //Global.Grid.transform.localPosition = new Vector3(-(Global.Grid_CurrentIndex * Global.Grid_PerSize), 0, 0);
@@ -121,7 +120,7 @@ public class Drag : UIScene {
 
             if (Grid_CurrentIndex > 0 && IsRight)
             {
-                if (Dis > Screen.width / 2)
+                if (Dis > Screen.width / 3)
                 {
                     Grid_CurrentIndex--;
                     // Global.Grid.transform.localPosition = new Vector3(-(Global.Grid_CurrentIndex * Global.Grid_PerSize), 0, 0);
@@ -161,6 +160,10 @@ public class Drag : UIScene {
         {
             //处理双击事件，选择当前currindex所对应的人物
             Debug.Log("double Click");
+            Helpers.UIScene<UIScene_Custompass>();
+            UIScene_SelecteV1 selectv1 = gameObject.GetComponentInParent<UIScene_SelecteV1>();
+            selectv1.PressOK(gameObject);
+            //Destroy(gameObject.transform.parent.transform.parent.transform.parent.gameObject);
             ResetClick();
         }
         
