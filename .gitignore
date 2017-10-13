@@ -4,3 +4,7 @@ Client/Library/assetDatabase3
 Client/Library/AssetImportState
 /Client/Library
 /Client/Temp
+Client/Client.CSharp.csproj
+*.csproj
+*.sln
+Client/Client.v12.suo
