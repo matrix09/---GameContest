@@ -965,11 +965,11 @@ public class PlayerManager : MonoBehaviour
 
                 //m_vInputMove.x = 0 - m_vInputMove.x;
                 //return;
-                if (n > 50)
-                {
-                    CalJumpSmallUp();
-                }
-                else
+                //if (n > 50)
+                //{
+                //    CalJumpSmallUp();
+                //}
+                //else
                 {
                     SkillMgr.UseSkill(eSkillType.SkillType_ThrowBox);
                 }
