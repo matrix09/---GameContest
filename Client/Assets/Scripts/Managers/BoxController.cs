@@ -30,6 +30,9 @@ public class BoxController : MonoBehaviour {
 
     BaseActor PlayerThrowBox;                               //获取扔盒子的角色
 
+    bool m_bTrigger;
+
+
     void Awake()
     {
         m_fStartTime = 0f;
@@ -39,6 +42,8 @@ public class BoxController : MonoBehaviour {
         BC = GetComponent<BoxCollider>();
 
         halfsize = BC.size.x * 0.5f;
+
+        m_bTrigger = false;
 
     }
 
@@ -52,6 +57,7 @@ public class BoxController : MonoBehaviour {
         AbsDis = Mathf.Abs(FDownDis);
         cc = Camera.main.GetComponent<CameraController>();
         PlayerThrowBox = thrower;
+        m_bTrigger = true;
     }
     float AbsDis;
     float tmp;
@@ -59,7 +65,7 @@ public class BoxController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (m_fStartTime != 0f)
+        if (m_bTrigger == true)
         {
             if (Time.time - m_fStartTime > FDuration)
             {
@@ -89,16 +95,19 @@ public class BoxController : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         BaseActor Owner = null;
-        if (gameObject.layer == LayerMask.NameToLayer("HoldBox"))                      //如果是举起来的盒子
+        if (gameObject.layer == LayerMask.NameToLayer("HoldBox") && m_bTrigger/*标识是飞出去的盒子*/)                      //如果是举起来的盒子
         {
             if ((Owner = other.transform.parent.GetComponent<BaseActor>()) != null)
             {
-                if (Owner.BaseAtt.RoleInfo.CharacType == eCharacType.Type_Major && Vector3.Dot(Owner.Actor.transform.forward, transform.forward) * Mathf.Rad2Deg > 100f)
+
+                if (PlayerThrowBox == Owner)
+                    return;
+
+                if (Owner.BaseAtt.RoleInfo.CharacType == eCharacType.Type_Major)
                 {
                     TrigBuff(Owner, 5010101);
                 }
-                else 
-                if (Owner.BaseAtt.RoleInfo.CharacType != eCharacType.Type_Major && Owner.BaseAtt.RoleInfo.CharacSide == eCharacSide.Side_Enemy)
+                else if (Owner.BaseAtt.RoleInfo.CharacType != eCharacType.Type_Major && Owner.BaseAtt.RoleInfo.CharacSide == eCharacSide.Side_Enemy)
                 {
                     TrigBuff(Owner, 1010101);
                     Owner.HoldBoxDir =transform.forward;                               //确定飞过来的盒子的方向

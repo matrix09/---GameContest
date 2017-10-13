@@ -10,9 +10,12 @@ public class StartPoint : MonoBehaviour {
 
     public int RoleId;
 
+    public Transform TStartPoint;
+
+
     public void OnStart()
     {
-        BaseActor player = BaseActor.CreatePlayer(RoleId, transform.position, transform.rotation, Vector3.one);
+        BaseActor player = BaseActor.CreatePlayer(RoleId, TStartPoint.position, TStartPoint.rotation, Vector3.one);
 
         //todo_erric
         //player.CameraContrl.BRefreshCameraData = true;
@@ -20,15 +23,13 @@ public class StartPoint : MonoBehaviour {
         //启动玩家的角色管理器
         player.PlayerMgr.OnStart(player, BirthArea);
 
-       
-
     }
         
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(transform.position, new Vector3(m_fRadius, m_fRadius, m_fRadius));
+        Gizmos.DrawCube(TStartPoint.position, new Vector3(m_fRadius, m_fRadius, m_fRadius));
     }
 
 }
