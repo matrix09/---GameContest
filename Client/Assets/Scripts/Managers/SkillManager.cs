@@ -45,10 +45,10 @@ public class SkillManager : MonoBehaviour
 
     public bool UseSkill(eSkillType type)
     {
-        if (Owner.AM.IsInTransition(0)){
-            Debug.Log("Animator is in transition");
-            return false;
-        }
+        //if (Owner.AM.IsInTransition(0)){
+        //    Debug.Log("Animator is in transition");
+        //    return false;
+        //}
            
         //通过主角roleid + type 获取技能id -> 读取asset文件内部信息。
         switch (type)
