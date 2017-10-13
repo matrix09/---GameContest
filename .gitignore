@@ -8,3 +8,5 @@ Client/Client.CSharp.csproj
 *.csproj
 *.sln
 Client/Client.v12.suo
+Client/.vs/Client/v15/.suo
+Client/.vs/Client/v15/sqlite3/storage.ide

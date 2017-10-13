@@ -55,15 +55,17 @@ public class UIScene_SelecteV1 : UIScene {
         AudioManager.PlayAudio(null, eAudioType.Audio_UI, m_strOK);
         eState = LoadingState.e_LoadLevel;
         //GlobalHelper.LoadLevel("Loading");
-        Helpers.UIScene<UIScene_Custompass>();
         Destroy(gameObject);
+        Helpers.UIScene<UIScene_Custompass>();
+  
     }
     void PressBack(GameObject obj)
     {
         AudioManager.PlayAudio(null, eAudioType.Audio_UI, m_strBack);
         //GlobalHelper.LoadLevel("Begin");
-       Helpers.UIScene<UIScene_Login>();
         Destroy(gameObject);
+        Helpers.UIScene<UIScene_Login>();
+
     }
 	// Update is called once per frame
 	void Update () {

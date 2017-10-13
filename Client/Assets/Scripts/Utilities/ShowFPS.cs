@@ -13,7 +13,7 @@ public class ShowFPS : MonoBehaviour {
 
     void Start() 
     {
-		//Application.targetFrameRate=60;
+		Application.targetFrameRate=30;
 
         f_LastInterval = Time.realtimeSinceStartup;
 
